@@ -1,5 +1,8 @@
+'use client';
 import './globals.scss';
 import './styles/style.scss';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Header from './components/header';
@@ -17,7 +20,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={inter.className}>
         <Header></Header>
-        {children}
+        <Provider store={store}>{children}</Provider>
         <Footer></Footer>
       </body>
     </html>
