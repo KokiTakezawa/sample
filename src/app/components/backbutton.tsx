@@ -1,10 +1,14 @@
 //戻るボタン
 import { useRouter } from 'next/navigation';
+import { reset } from '../redux/nameSlice';
+import { useDispatch } from 'react-redux';
 
 const BackButton = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
   // ここからrouterを使用して操作を行います
   const handleGoBack = () => {
+    dispatch(reset());
     router.back();
   };
 

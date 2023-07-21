@@ -6,7 +6,7 @@ type ValidationResponse = {
 };
 
 // 名前のチェックを行う関数
-const HelloMessage = (name: string): ValidationResponse => {
+export const HelloMessage = (name: string): ValidationResponse => {
   //英字およびUTF-8文字のみ
   const nameRegex = /^[A-Za-z\u00C0-\u00FF\s]+$/;
 
@@ -25,6 +25,7 @@ const HelloMessage = (name: string): ValidationResponse => {
       };
     }
   } catch (error: unknown) {
+    //エラーオブジェクトがErrorクラスのインスタンスの場合
     if (error instanceof Error) {
       return {
         status: false,
